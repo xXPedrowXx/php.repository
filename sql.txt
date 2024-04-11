@@ -1,0 +1,61 @@
+
+(super usuario/ funcionario)
+CREATE TABLE seu_banco_de_dados.usuarios (
+  id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+  nome_usuario VARCHAR(200) NOT NULL,
+  mail_usuario VARCHAR(150) NOT NULL,
+  senha_usuario VARCHAR(60) NOT NULL,
+  nivel_usuario INT NOT NULL,
+  status VARCHAR(50) NOT NULL
+);
+
+
+
+ALTER TABLE seu_banco_de_dados.estoque
+MODIFY id_estoque int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+ALTER TABLE seu_banco_de_dados.estoque
+ ADD PRIMARY KEY (id_estoque);
+
+
+
+CREATE TABLE seu_banco_de_dados.estoque (
+  id_estoque int(11) NOT NULL,
+  numproduto int(11) NOT NULL,
+  nomeproduto varchar(200) NOT NULL,
+  categoria varchar(100) NOT NULL,
+  quantidade int(11) NOT NULL,
+  fornecedor varchar(100) NOT NULL
+)
+
+CREATE TABLE seu_banco_de_dados.fornecedor (
+  id_fornecedor INT AUTO_INCREMENT PRIMARY KEY,
+  nome_fornecedor VARCHAR(200) DEFAULT NULL,
+  regiao VARCHAR(100) NOT NULL,
+  categoria_atende VARCHAR(100) NOT NULL,
+  prazo_entrega INT NOT NULL
+);
+
+CREATE TABLE seu_banco_de_dados.categoria (
+  id_categoria int(11) NOT NULL,
+  categoria varchar(200) NOT NULL
+)
+
+
+
+-- Criar tabela users
+CREATE TABLE seu_banco_de_dados.users (
+  user_id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(100) NOT NULL,
+  email VARCHAR(200) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  CONSTRAINT PKUSER PRIMARY KEY (user_id)
+);
+
+-- Criar tabela formulario
+CREATE TABLE seu_banco_de_dados.formulario (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  message TEXT NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
